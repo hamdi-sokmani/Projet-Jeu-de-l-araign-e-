@@ -3,7 +3,8 @@ TEMPLATE = app
 QT += qml quick
 CONFIG += c++11
 
-SOURCES += main.cpp
+SOURCES += main.cpp \
+    game.cpp
 
 RESOURCES += qml.qrc
 
@@ -15,3 +16,6 @@ include(deployment.pri)
 
 DISTFILES += \
     MyComponent.qml
+
+HEADERS += \
+    game.h
