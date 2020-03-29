@@ -53,98 +53,7 @@ Rectangle{
             border.width: 1
         }
 
-        MouseArea {
-            id: mouseArea1
-            width: 50
-            height: 50
-            anchors.leftMargin: -25
-            anchors.top: parent.top
-            anchors.topMargin: -25
-            anchors.left: parent.left
-            //onClicked: vueGame.gestion(0);
-        }
 
-        MouseArea {
-            id: mouseArea2
-            width: 50
-            height: 50
-            anchors.top: parent.top
-            anchors.topMargin: -25
-            anchors.horizontalCenter: parent.horizontalCenter
-            //onClicked: vueGame.gestion(1);
-        }
-
-        MouseArea {
-            id: mouseArea3
-            width: 50
-            height: 50
-            anchors.rightMargin: -25
-            anchors.right: parent.right
-            anchors.top: parent.top
-            anchors.topMargin: -25
-            //onClicked: vueGame.gestion(2);
-        }
-
-        MouseArea {
-            id: mouseArea4
-            width: 50
-            height: 50
-            anchors.leftMargin: -25
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.left: parent.left
-            //onClicked: vueGame.gestion(3);
-        }
-
-        MouseArea {
-            id: mouseArea5
-            width: 50
-            height: 50
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.horizontalCenter: parent.horizontalCenter
-            ////onClicked: vueGame.gestion(4);
-        }
-
-        MouseArea {
-            id: mouseArea6
-            width: 50
-            height: 50
-            anchors.rightMargin: -25
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.right: parent.right
-            //onClicked: vueGame.gestion(5);
-        }
-
-        MouseArea {
-            id: mouseArea7
-            width: 50
-            height: 50
-            anchors.bottom: parent.bottom
-            anchors.leftMargin: -25
-            anchors.left: parent.left
-            anchors.bottomMargin: -25
-            //onClicked: vueGame.gestion(6);
-        }
-
-        MouseArea {
-            id: mouseArea8
-            width: 50
-            height: 50
-            anchors.bottom: parent.bottom
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.bottomMargin: -25
-            //onClicked: vueGame.gestion(7);
-        }
-
-        MouseArea {
-            id: mouseArea9
-            width: 50
-            height: 50
-            anchors.bottom: parent.bottom
-            anchors.rightMargin: -25
-            anchors.right: parent.right
-            anchors.bottomMargin: -25
-            //onClicked: vueGame.gestion(8);
-        }
         Rectangle {
             id: rect_for_border
             color:"#00000000"
@@ -178,6 +87,226 @@ Rectangle{
         }
 
         border.width: 1
+        Rectangle {
+            id: colorArea1
+            width: 25
+            height: 25
+            anchors.leftMargin: -12.5
+            anchors.top: parent.top
+            anchors.topMargin: -12.5
+            anchors.left: parent.left
+
+
+        }
+        Rectangle{
+            id: colorArea2
+            width: 25
+            height: 25
+            anchors.top: parent.top
+            anchors.topMargin: -12.5
+            anchors.horizontalCenter: parent.horizontalCenter
+
+        }
+
+
+        Rectangle {
+            id: colorArea3
+            width: 25
+            height: 25
+            anchors.rightMargin: -12.5
+            anchors.right: parent.right
+            anchors.top: parent.top
+            anchors.topMargin: -12.5
+
+        }
+
+        Rectangle {
+            id: colorArea4
+            width: 25
+            height: 25
+            anchors.leftMargin: -12.5
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.left: parent.left
+
+        }
+
+        Rectangle {
+            id: colorArea5
+            width: 25
+            height: 25
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.horizontalCenter: parent.horizontalCenter
+
+        }
+
+        Rectangle {
+            id: colorArea6
+            width: 25
+            height: 25
+            anchors.rightMargin: -12.5
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.right: parent.right
+
+        }
+
+        Rectangle {
+            id: colorArea7
+            width: 25
+            height: 25
+            anchors.bottom: parent.bottom
+            anchors.leftMargin: -12.5
+            anchors.left: parent.left
+            anchors.bottomMargin: -12.5
+
+        }
+
+        Rectangle {
+            id: colorArea8
+            width: 25
+            height: 25
+            anchors.bottom: parent.bottom
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.bottomMargin: -12.5
+
+        }
+
+        Rectangle {
+            id: colorArea9
+            width: 25
+            height: 25
+            anchors.bottom: parent.bottom
+            anchors.rightMargin: -12.5
+            anchors.right: parent.right
+            anchors.bottomMargin: -12.5
+
+        }
+        MouseArea {
+            id: mouseArea1
+            anchors.fill:colorArea1
+            hoverEnabled: true;
+            onExited: {
+                colorArea1.color="white"
+            }
+
+            onEntered: {
+                colorArea1.color="green"
+            }
+
+            onClicked: Game.gestion(1);
+        }
+
+
+        MouseArea {
+            id: mouseArea2
+            anchors.fill:colorArea2
+            hoverEnabled: true;
+            onExited: {
+                colorArea2.color="white"
+            }
+
+            onEntered: {
+                colorArea2.color="green"
+            }
+            onClicked: Game.gestion(2);
+        }
+
+        MouseArea {
+            id: mouseArea3
+           anchors.fill:colorArea3
+           hoverEnabled: true;
+           onExited: {
+               colorArea3.color="white"
+           }
+
+           onEntered: {
+               colorArea3.color="green"
+           }
+            onClicked: Game.gestion(3);
+        }
+
+        MouseArea {
+            id: mouseArea4
+            anchors.fill:colorArea4
+            hoverEnabled: true;
+            onExited: {
+                colorArea4.color="white"
+            }
+
+            onEntered: {
+                colorArea4.color="green"
+            }
+            onClicked: Game.gestion(4);
+        }
+
+        MouseArea {
+            id: mouseArea5
+            anchors.fill:colorArea5
+            hoverEnabled: true;
+            onExited: {
+                colorArea5.color="white"
+            }
+
+            onEntered: {
+                colorArea5.color="green"
+            }
+            onClicked: Game.gestion(5);
+        }
+
+        MouseArea {
+            id: mouseArea6
+            anchors.fill:colorArea6
+            hoverEnabled: true;
+            onExited: {
+                colorArea6.color="white"
+            }
+
+            onEntered: {
+                colorArea6.color="green"
+            }
+            onClicked: Game.gestion(6);
+        }
+
+        MouseArea {
+            id: mouseArea7
+            anchors.fill:colorArea7
+            hoverEnabled: true;
+            onExited: {
+                colorArea7.color="white"
+            }
+
+            onEntered: {
+                colorArea7.color="green"
+            }
+            onClicked: Game.gestion(7);
+        }
+
+        MouseArea {
+            id: mouseArea8
+            anchors.fill:colorArea8
+            hoverEnabled: true;
+            onExited: {
+                colorArea8.color="white"
+            }
+
+            onEntered: {
+                colorArea8.color="green"
+            }
+            onClicked: Game.gestion(8);
+        }
+
+        MouseArea {
+            id: mouseArea9
+            anchors.fill:colorArea9
+            hoverEnabled: true;
+            onExited: {
+                colorArea9.color="white"
+            }
+
+            onEntered: {
+                colorArea9.color="green"
+            }
+            onClicked: Game.gestion(9);
+        }
 
 
     }
