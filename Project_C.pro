@@ -4,6 +4,7 @@ QT += qml quick
 CONFIG += c++11
 
 SOURCES += main.cpp \
+    case.cpp \
     game.cpp
 
 RESOURCES += qml.qrc
@@ -18,4 +19,5 @@ DISTFILES += \
     MyComponent.qml
 
 HEADERS += \
+    case.h \
     game.h

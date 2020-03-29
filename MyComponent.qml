@@ -88,35 +88,49 @@ Rectangle{
 
         border.width: 1
         Rectangle {
-            id: colorArea1
+            id: colorArea0
             width: 25
             height: 25
             anchors.leftMargin: -12.5
             anchors.top: parent.top
             anchors.topMargin: -12.5
             anchors.left: parent.left
+            color:gameQML[0]
 
 
         }
         Rectangle{
-            id: colorArea2
+            id: colorArea1
             width: 25
             height: 25
             anchors.top: parent.top
             anchors.topMargin: -12.5
             anchors.horizontalCenter: parent.horizontalCenter
+            color:gameQML[1]
 
         }
 
 
         Rectangle {
-            id: colorArea3
+            id: colorArea2
             width: 25
             height: 25
             anchors.rightMargin: -12.5
             anchors.right: parent.right
             anchors.top: parent.top
             anchors.topMargin: -12.5
+            color:gameQML[2]
+
+        }
+
+        Rectangle {
+            id: colorArea3
+            width: 25
+            height: 25
+            anchors.leftMargin: -12.5
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.left: parent.left
+            color:gameQML[3]
 
         }
 
@@ -124,9 +138,9 @@ Rectangle{
             id: colorArea4
             width: 25
             height: 25
-            anchors.leftMargin: -12.5
             anchors.verticalCenter: parent.verticalCenter
-            anchors.left: parent.left
+            anchors.horizontalCenter: parent.horizontalCenter
+            color:gameQML[4]
 
         }
 
@@ -134,8 +148,10 @@ Rectangle{
             id: colorArea5
             width: 25
             height: 25
+            anchors.rightMargin: -12.5
             anchors.verticalCenter: parent.verticalCenter
-            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.right: parent.right
+            color:gameQML[5]
 
         }
 
@@ -143,9 +159,11 @@ Rectangle{
             id: colorArea6
             width: 25
             height: 25
-            anchors.rightMargin: -12.5
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.right: parent.right
+            anchors.bottom: parent.bottom
+            anchors.leftMargin: -12.5
+            anchors.left: parent.left
+            anchors.bottomMargin: -12.5
+            color:gameQML[6]
 
         }
 
@@ -154,9 +172,9 @@ Rectangle{
             width: 25
             height: 25
             anchors.bottom: parent.bottom
-            anchors.leftMargin: -12.5
-            anchors.left: parent.left
+            anchors.horizontalCenter: parent.horizontalCenter
             anchors.bottomMargin: -12.5
+            color:gameQML[7]
 
         }
 
@@ -165,63 +183,82 @@ Rectangle{
             width: 25
             height: 25
             anchors.bottom: parent.bottom
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.bottomMargin: -12.5
-
-        }
-
-        Rectangle {
-            id: colorArea9
-            width: 25
-            height: 25
-            anchors.bottom: parent.bottom
             anchors.rightMargin: -12.5
             anchors.right: parent.right
             anchors.bottomMargin: -12.5
+            color:gameQML[8]
 
         }
+        MouseArea {
+            id: mouseArea0
+            anchors.fill:colorArea0
+            hoverEnabled: true;
+            onExited: {
+                colorArea1.color=gameQML[0]
+            }
+
+            onEntered: {
+                if( colorArea0.color=="gainsboro")
+                {
+                     colorArea0.color="silver"
+                }
+            }
+
+            onClicked:{
+
+                Game.gestion(0);
+            }
+        }
+
+
         MouseArea {
             id: mouseArea1
             anchors.fill:colorArea1
             hoverEnabled: true;
             onExited: {
-                colorArea1.color="white"
+                colorArea1.color=gameQML[1]
             }
 
             onEntered: {
-                colorArea1.color="green"
+                colorArea1.color="silver"
             }
+            onClicked:{
 
-            onClicked: Game.gestion(1);
+                Game.gestion(1);
+            }
         }
-
 
         MouseArea {
             id: mouseArea2
-            anchors.fill:colorArea2
-            hoverEnabled: true;
-            onExited: {
-                colorArea2.color="white"
-            }
+           anchors.fill:colorArea2
+           hoverEnabled: true;
+           onExited: {
+               colorArea2.color=gameQML[2]
+           }
 
-            onEntered: {
-                colorArea2.color="green"
+           onEntered: {
+               colorArea2.color="silver"
+           }
+            onClicked: {
+                Game.gestion(2);
             }
-            onClicked: Game.gestion(2);
         }
 
         MouseArea {
             id: mouseArea3
-           anchors.fill:colorArea3
-           hoverEnabled: true;
-           onExited: {
-               colorArea3.color="white"
-           }
+            anchors.fill:colorArea3
+            hoverEnabled: true;
+            onExited: {
+                colorArea3.color=gameQML[3]
+            }
 
-           onEntered: {
-               colorArea3.color="green"
-           }
-            onClicked: Game.gestion(3);
+            onEntered: {
+                colorArea3.color="silver"
+            }
+            onClicked:{
+
+                Game.gestion(3);
+            }
         }
 
         MouseArea {
@@ -229,13 +266,16 @@ Rectangle{
             anchors.fill:colorArea4
             hoverEnabled: true;
             onExited: {
-                colorArea4.color="white"
+                colorArea4.color=gameQML[4]
             }
 
             onEntered: {
-                colorArea4.color="green"
+                colorArea4.color="silver"
             }
-            onClicked: Game.gestion(4);
+            onClicked:{
+
+                Game.gestion(4);
+            }
         }
 
         MouseArea {
@@ -243,13 +283,16 @@ Rectangle{
             anchors.fill:colorArea5
             hoverEnabled: true;
             onExited: {
-                colorArea5.color="white"
+                colorArea5.color=gameQML[5]
             }
 
             onEntered: {
-                colorArea5.color="green"
+                colorArea5.color="silver"
             }
-            onClicked: Game.gestion(5);
+            onClicked:{
+
+                Game.gestion(5);
+            }
         }
 
         MouseArea {
@@ -257,13 +300,16 @@ Rectangle{
             anchors.fill:colorArea6
             hoverEnabled: true;
             onExited: {
-                colorArea6.color="white"
+                colorArea6.color=gameQML[6]
             }
 
             onEntered: {
-                colorArea6.color="green"
+                colorArea6.color="silver"
             }
-            onClicked: Game.gestion(6);
+            onClicked:{
+
+                Game.gestion(6);
+            }
         }
 
         MouseArea {
@@ -271,13 +317,16 @@ Rectangle{
             anchors.fill:colorArea7
             hoverEnabled: true;
             onExited: {
-                colorArea7.color="white"
+                colorArea7.color=gameQML[7]
             }
 
             onEntered: {
-                colorArea7.color="green"
+                colorArea7.color="silver"
             }
-            onClicked: Game.gestion(7);
+            onClicked:{
+
+                Game.gestion(7);
+            }
         }
 
         MouseArea {
@@ -285,27 +334,16 @@ Rectangle{
             anchors.fill:colorArea8
             hoverEnabled: true;
             onExited: {
-                colorArea8.color="white"
+                colorArea8.color=gameQML[8]
             }
 
             onEntered: {
-                colorArea8.color="green"
+                colorArea8.color="silver"
             }
-            onClicked: Game.gestion(8);
-        }
+            onClicked: {
 
-        MouseArea {
-            id: mouseArea9
-            anchors.fill:colorArea9
-            hoverEnabled: true;
-            onExited: {
-                colorArea9.color="white"
+                Game.gestion(8);
             }
-
-            onEntered: {
-                colorArea9.color="green"
-            }
-            onClicked: Game.gestion(9);
         }
 
 
