@@ -13,9 +13,13 @@ public:
     void phase1(int place); //gère la partie quand les 6 jetons ne sont pas encore mis
     void phase2(int place); //gère la suite
     Q_INVOKABLE QList<QString> readPos(); //liste des positions utilisées
-    Q_PROPERTY(QList<QString> gameQML READ readPos);
+    Q_PROPERTY(QList<QString> gameQML READ readPos NOTIFY gamechanged);
+    Q_INVOKABLE QString which_turn();
+    Q_PROPERTY(QString current_color READ which_turn NOTIFY gamechanged);
+
 
 signals:
+    void gamechanged();
 
 
 private:

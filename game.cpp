@@ -24,6 +24,7 @@ void Game::gestion(int place)
         Game::phase2(place);
 
     }
+    gamechanged();
 }
 
 void Game::phase1(int place){
@@ -62,9 +63,10 @@ QList<QString> Game::readPos()
     {
         positions<<gris;
     }
+
     for(int i=0; i<9; i++)
     {
-        cout<<listecases[i].getJoueur()<<endl;
+
         if(listecases[i].getJoueur()==0)
         {
             positions[i]=gris;
@@ -81,4 +83,24 @@ QList<QString> Game::readPos()
     return positions;
 }
 
+QString Game::which_turn()
+{
+     QString orange="#ff8300", bleu="#0032a0";
+     QString current_color;
+
+
+     cout<<compteur<<endl;
+     if (compteur%2==0)
+     {
+         current_color=bleu;
+     }
+     if (compteur%2==1)
+     {
+        current_color=orange;
+     }
+
+
+     return current_color;
+
+}
 

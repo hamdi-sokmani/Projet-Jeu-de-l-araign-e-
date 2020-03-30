@@ -35,7 +35,7 @@ Window {
             height: 25
             anchors.left: parent.left
             anchors.bottom: parent.bottom
-            color: "silver"
+            color: Game.current_color
 
         }
 
