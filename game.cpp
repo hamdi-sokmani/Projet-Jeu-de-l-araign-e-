@@ -34,6 +34,7 @@ void Game::phase2(int place){
     {
         if (listecases[place].getJoueur()==(compteur%2+1))
         {
+            contrainte_deplacement(place);
             listecases[place].setJoueur(0);
             color_exist=false;
         }
@@ -41,16 +42,88 @@ void Game::phase2(int place){
     }
     else
     {
-        if (listecases[place].getJoueur()==0)
+        if (listecases_copy[place].getJoueur()==0)
         {
             listecases[place].setJoueur(compteur%2+1);
             color_exist=true;
             compteur++;
         }
     }
+}
 
+void Game::contrainte_deplacement(int case_number)
+{
 
-
+    cout<<"bbb"<<endl;
+    for (int i=0;i<9;i++)
+    {
+        listecases_copy[i].setJoueur(listecases[i].getJoueur());
+        cout<<listecases_copy[i].getJoueur()<<endl;
+    }
+    if(case_number==0)
+    {
+        listecases_copy[2].setJoueur(3);
+        listecases_copy[5].setJoueur(3);
+        listecases_copy[6].setJoueur(3);
+        listecases_copy[7].setJoueur(3);
+        listecases_copy[8].setJoueur(3);
+    }
+    if(case_number==1)
+    {
+        listecases_copy[3].setJoueur(3);
+        listecases_copy[5].setJoueur(3);
+        listecases_copy[6].setJoueur(3);
+        listecases_copy[7].setJoueur(3);
+        listecases_copy[8].setJoueur(3);
+    }
+    if(case_number==2)
+    {
+        listecases_copy[0].setJoueur(3);
+        listecases_copy[3].setJoueur(3);
+        listecases_copy[6].setJoueur(3);
+        listecases_copy[7].setJoueur(3);
+        listecases_copy[8].setJoueur(3);
+    }
+    if(case_number==3)
+    {
+        listecases_copy[1].setJoueur(3);
+        listecases_copy[2].setJoueur(3);
+        listecases_copy[5].setJoueur(3);
+        listecases_copy[7].setJoueur(3);
+        listecases_copy[8].setJoueur(3);
+    }
+    if(case_number==5)
+    {
+        listecases_copy[0].setJoueur(3);
+        listecases_copy[1].setJoueur(3);
+        listecases_copy[3].setJoueur(3);
+        listecases_copy[6].setJoueur(3);
+        listecases_copy[7].setJoueur(3);
+    }
+    if(case_number==6)
+    {
+        listecases_copy[0].setJoueur(3);
+        listecases_copy[1].setJoueur(3);
+        listecases_copy[2].setJoueur(3);
+        listecases_copy[5].setJoueur(3);
+        listecases_copy[8].setJoueur(3);
+    }
+    if(case_number==7)
+    {
+        listecases_copy[0].setJoueur(3);
+        listecases_copy[1].setJoueur(3);
+        listecases_copy[2].setJoueur(3);
+        listecases_copy[3].setJoueur(3);
+        listecases_copy[5].setJoueur(3);
+    }
+    if(case_number==8)
+    {
+        listecases_copy[0].setJoueur(3);
+        listecases_copy[1].setJoueur(3);
+        listecases_copy[2].setJoueur(3);
+        listecases_copy[3].setJoueur(3);
+        listecases_copy[6].setJoueur(3);
+    }
 }
 
 QList<QString> Game::readPos()
@@ -142,6 +215,9 @@ void Game::condition_winner()
     }
 
 }
+
+
+
 
 QString Game::winner_color()
 {
