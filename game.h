@@ -20,7 +20,8 @@ signals:
 
 private:
     int compteur=0;//pour voir on est dans quelle phase
-    Case listecases[8];
+    Case listecases[9];
+    bool color_exist=true;
 };
 
 #endif // GAME_H

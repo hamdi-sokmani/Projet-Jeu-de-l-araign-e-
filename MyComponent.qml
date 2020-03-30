@@ -194,19 +194,23 @@ Rectangle{
             anchors.fill:colorArea0
             hoverEnabled: true;
             onExited: {
-                colorArea0.color=Game.gameQML[0]
+                if(colorArea0.color=="#c0c0c0")
+                {
+                    colorArea0.color="gainsboro"
+                }
+
             }
 
             onEntered: {
-                if( colorArea0.color=="gainsboro")
+                if(colorArea0.color=="#dcdcdc")
                 {
-                     colorArea0.color="silver"
+                    colorArea0.color="silver"
                 }
             }
-
             onClicked:{
 
                 Game.gestion(0);
+                 colorArea0.color=Game.gameQML[0]
             }
         }
 
@@ -216,15 +220,23 @@ Rectangle{
             anchors.fill:colorArea1
             hoverEnabled: true;
             onExited: {
-                colorArea1.color=Game.gameQML[1]
+                if(colorArea1.color=="#c0c0c0")
+                {
+                    colorArea1.color="gainsboro"
+                }
+
             }
 
             onEntered: {
-                colorArea1.color="silver"
+                if(colorArea1.color=="#dcdcdc")
+                {
+                    colorArea1.color="silver"
+                }
             }
             onClicked:{
 
                 Game.gestion(1);
+                 colorArea1.color=Game.gameQML[1]
             }
         }
 
@@ -233,14 +245,21 @@ Rectangle{
            anchors.fill:colorArea2
            hoverEnabled: true;
            onExited: {
-               colorArea2.color=Game.gameQML[2]
+               if(colorArea2.color=="#c0c0c0")
+               {
+                   colorArea2.color="gainsboro"
+               }
            }
 
            onEntered: {
-               colorArea2.color="silver"
+               if(colorArea2.color=="#dcdcdc")
+               {
+                   colorArea2.color="silver"
+               }
            }
             onClicked: {
                 Game.gestion(2);
+                 colorArea2.color=Game.gameQML[2]
             }
         }
 
@@ -249,15 +268,22 @@ Rectangle{
             anchors.fill:colorArea3
             hoverEnabled: true;
             onExited: {
-                colorArea3.color=Game.gameQML[3]
+                if(colorArea3.color=="#c0c0c0")
+                {
+                    colorArea3.color="gainsboro"
+                }
             }
 
             onEntered: {
-                colorArea3.color="silver"
+                if(colorArea3.color=="#dcdcdc")
+                {
+                    colorArea3.color="silver"
+                }
             }
             onClicked:{
 
                 Game.gestion(3);
+                 colorArea3.color=Game.gameQML[3]
             }
         }
 
@@ -266,15 +292,22 @@ Rectangle{
             anchors.fill:colorArea4
             hoverEnabled: true;
             onExited: {
-                colorArea4.color=Game.gameQML[4]
+                if(colorArea4.color=="#c0c0c0")
+                {
+                    colorArea4.color="gainsboro"
+                }
             }
 
             onEntered: {
-                colorArea4.color="silver"
+                if(colorArea4.color=="#dcdcdc")
+                {
+                    colorArea4.color="silver"
+                }
             }
             onClicked:{
 
                 Game.gestion(4);
+                 colorArea4.color=Game.gameQML[4]
             }
         }
 
@@ -283,15 +316,22 @@ Rectangle{
             anchors.fill:colorArea5
             hoverEnabled: true;
             onExited: {
-                colorArea5.color=Game.gameQML[5]
+                if(colorArea5.color=="#c0c0c0")
+                {
+                    colorArea5.color="gainsboro"
+                }
             }
 
             onEntered: {
-                colorArea5.color="silver"
+                if(colorArea5.color=="#dcdcdc")
+                {
+                    colorArea5.color="silver"
+                }
             }
             onClicked:{
 
                 Game.gestion(5);
+                 colorArea5.color=Game.gameQML[5]
             }
         }
 
@@ -300,15 +340,22 @@ Rectangle{
             anchors.fill:colorArea6
             hoverEnabled: true;
             onExited: {
-                colorArea6.color=Game.gameQML[6]
+                if(colorArea6.color=="#c0c0c0")
+                {
+                    colorArea6.color="gainsboro"
+                }
             }
 
             onEntered: {
-                colorArea6.color="silver"
+                if(colorArea6.color=="#dcdcdc")
+                {
+                    colorArea6.color="silver"
+                }
             }
             onClicked:{
 
                 Game.gestion(6);
+                 colorArea6.color=Game.gameQML[6]
             }
         }
 
@@ -317,15 +364,22 @@ Rectangle{
             anchors.fill:colorArea7
             hoverEnabled: true;
             onExited: {
-                colorArea7.color=Game.gameQML[7]
+                if(colorArea7.color=="#c0c0c0")
+                {
+                    colorArea7.color="gainsboro"
+                }
             }
 
             onEntered: {
-                colorArea7.color="silver"
+                if(colorArea7.color=="#dcdcdc")
+                {
+                    colorArea7.color="silver"
+                }
             }
             onClicked:{
 
                 Game.gestion(7);
+                 colorArea7.color=Game.gameQML[7]
             }
         }
 
@@ -334,15 +388,22 @@ Rectangle{
             anchors.fill:colorArea8
             hoverEnabled: true;
             onExited: {
-                colorArea8.color=Game.gameQML[8]
+                if(colorArea8.color=="#c0c0c0")
+                {
+                    colorArea8.color="gainsboro"
+                }
             }
 
             onEntered: {
-                colorArea8.color="silver"
+                if(colorArea8.color=="#dcdcdc")
+                {
+                    colorArea8.color="silver"
+                }
             }
             onClicked: {
 
                 Game.gestion(8);
+                 colorArea8.color=Game.gameQML[8]
             }
         }
 
