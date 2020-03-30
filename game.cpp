@@ -19,7 +19,19 @@ void Game::gestion(int place)
     }
     else
     {
-        Game::phase2(place);
+        if(color_exist)
+        {
+            contrainte_takepion();
+            if (listecases_copy2[place].getJoueur()!=3)
+            {
+                Game::phase2_1(place);
+            }
+        }
+        else
+        {
+            Game::phase2_2(place);
+        }
+
     }
     condition_winner();
     gamechanged();
@@ -29,100 +41,134 @@ void Game::phase1(int place){
     listecases[place].setJoueur(compteur%2+1);
 }
 
-void Game::phase2(int place){
-    if(color_exist)
-    {
+void Game::phase2_1(int place){
+
         if (listecases[place].getJoueur()==(compteur%2+1))
         {
             contrainte_deplacement(place);
             listecases[place].setJoueur(0);
             color_exist=false;
         }
+}
+void Game::phase2_2(int place){
 
-    }
-    else
-    {
-        if (listecases_copy[place].getJoueur()==0)
+        if (listecases_copy1[place].getJoueur()==0)
         {
             listecases[place].setJoueur(compteur%2+1);
             color_exist=true;
             compteur++;
         }
-    }
 }
-
 void Game::contrainte_deplacement(int case_number)
 {
 
-    cout<<"bbb"<<endl;
     for (int i=0;i<9;i++)
     {
-        listecases_copy[i].setJoueur(listecases[i].getJoueur());
-        cout<<listecases_copy[i].getJoueur()<<endl;
+        listecases_copy1[i].setJoueur(listecases[i].getJoueur());
     }
     if(case_number==0)
     {
-        listecases_copy[2].setJoueur(3);
-        listecases_copy[5].setJoueur(3);
-        listecases_copy[6].setJoueur(3);
-        listecases_copy[7].setJoueur(3);
-        listecases_copy[8].setJoueur(3);
+        listecases_copy1[2].setJoueur(3);
+        listecases_copy1[5].setJoueur(3);
+        listecases_copy1[6].setJoueur(3);
+        listecases_copy1[7].setJoueur(3);
+        listecases_copy1[8].setJoueur(3);
     }
     if(case_number==1)
     {
-        listecases_copy[3].setJoueur(3);
-        listecases_copy[5].setJoueur(3);
-        listecases_copy[6].setJoueur(3);
-        listecases_copy[7].setJoueur(3);
-        listecases_copy[8].setJoueur(3);
+        listecases_copy1[3].setJoueur(3);
+        listecases_copy1[5].setJoueur(3);
+        listecases_copy1[6].setJoueur(3);
+        listecases_copy1[7].setJoueur(3);
+        listecases_copy1[8].setJoueur(3);
     }
     if(case_number==2)
     {
-        listecases_copy[0].setJoueur(3);
-        listecases_copy[3].setJoueur(3);
-        listecases_copy[6].setJoueur(3);
-        listecases_copy[7].setJoueur(3);
-        listecases_copy[8].setJoueur(3);
+        listecases_copy1[0].setJoueur(3);
+        listecases_copy1[3].setJoueur(3);
+        listecases_copy1[6].setJoueur(3);
+        listecases_copy1[7].setJoueur(3);
+        listecases_copy1[8].setJoueur(3);
     }
     if(case_number==3)
     {
-        listecases_copy[1].setJoueur(3);
-        listecases_copy[2].setJoueur(3);
-        listecases_copy[5].setJoueur(3);
-        listecases_copy[7].setJoueur(3);
-        listecases_copy[8].setJoueur(3);
+        listecases_copy1[1].setJoueur(3);
+        listecases_copy1[2].setJoueur(3);
+        listecases_copy1[5].setJoueur(3);
+        listecases_copy1[7].setJoueur(3);
+        listecases_copy1[8].setJoueur(3);
     }
     if(case_number==5)
     {
-        listecases_copy[0].setJoueur(3);
-        listecases_copy[1].setJoueur(3);
-        listecases_copy[3].setJoueur(3);
-        listecases_copy[6].setJoueur(3);
-        listecases_copy[7].setJoueur(3);
+        listecases_copy1[0].setJoueur(3);
+        listecases_copy1[1].setJoueur(3);
+        listecases_copy1[3].setJoueur(3);
+        listecases_copy1[6].setJoueur(3);
+        listecases_copy1[7].setJoueur(3);
     }
     if(case_number==6)
     {
-        listecases_copy[0].setJoueur(3);
-        listecases_copy[1].setJoueur(3);
-        listecases_copy[2].setJoueur(3);
-        listecases_copy[5].setJoueur(3);
-        listecases_copy[8].setJoueur(3);
+        listecases_copy1[0].setJoueur(3);
+        listecases_copy1[1].setJoueur(3);
+        listecases_copy1[2].setJoueur(3);
+        listecases_copy1[5].setJoueur(3);
+        listecases_copy1[8].setJoueur(3);
     }
     if(case_number==7)
     {
-        listecases_copy[0].setJoueur(3);
-        listecases_copy[1].setJoueur(3);
-        listecases_copy[2].setJoueur(3);
-        listecases_copy[3].setJoueur(3);
-        listecases_copy[5].setJoueur(3);
+        listecases_copy1[0].setJoueur(3);
+        listecases_copy1[1].setJoueur(3);
+        listecases_copy1[2].setJoueur(3);
+        listecases_copy1[3].setJoueur(3);
+        listecases_copy1[5].setJoueur(3);
     }
     if(case_number==8)
     {
-        listecases_copy[0].setJoueur(3);
-        listecases_copy[1].setJoueur(3);
-        listecases_copy[2].setJoueur(3);
-        listecases_copy[3].setJoueur(3);
-        listecases_copy[6].setJoueur(3);
+        listecases_copy1[0].setJoueur(3);
+        listecases_copy1[1].setJoueur(3);
+        listecases_copy1[2].setJoueur(3);
+        listecases_copy1[3].setJoueur(3);
+        listecases_copy1[6].setJoueur(3);
+    }
+}
+void Game::contrainte_takepion()
+{
+    for (int i=0;i<9;i++)
+    {
+        listecases_copy2[i].setJoueur(listecases[i].getJoueur());
+    }
+    if(listecases[1].getJoueur()!=0 && listecases[3].getJoueur()!=0 && listecases[4].getJoueur()!=0)
+    {
+        listecases_copy2[0].setJoueur(3);
+    }
+    if(listecases[0].getJoueur()!=0 && listecases[2].getJoueur()!=0 && listecases[4].getJoueur()!=0)
+    {
+        listecases_copy2[1].setJoueur(3);
+    }
+    if(listecases[1].getJoueur()!=0 && listecases[4].getJoueur()!=0 && listecases[5].getJoueur()!=0)
+    {
+        listecases_copy2[2].setJoueur(3);
+    }
+    if(listecases[0].getJoueur()!=0 && listecases[4].getJoueur()!=0 && listecases[6].getJoueur()!=0)
+    {
+        listecases_copy2[3].setJoueur(3);
+    }
+    if(listecases[2].getJoueur()!=0 && listecases[4].getJoueur()!=0 && listecases[8].getJoueur()!=0)
+    {
+        listecases_copy2[5].setJoueur(3);
+    }
+    if(listecases[3].getJoueur()!=0 && listecases[4].getJoueur()!=0 && listecases[7].getJoueur()!=0)
+    {
+        listecases_copy2[6].setJoueur(3);
+    }
+    if(listecases[6].getJoueur()!=0 && listecases[4].getJoueur()!=0 && listecases[8].getJoueur()!=0)
+    {
+        listecases_copy2[7].setJoueur(3);
+    }
+
+    if(listecases[5].getJoueur()!=0 && listecases[4].getJoueur()!=0 && listecases[7].getJoueur()!=0)
+    {
+        listecases_copy2[8].setJoueur(3);
     }
 }
 
