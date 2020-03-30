@@ -5,6 +5,8 @@ Rectangle{
     color:"lightyellow"
     width: 330
     height: 430
+    anchors.horizontalCenter: parent.horizontalCenter
+    anchors.top: parent.top
 
 
     Rectangle{
