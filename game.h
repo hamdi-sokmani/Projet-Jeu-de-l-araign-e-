@@ -25,8 +25,7 @@ public:
     Q_INVOKABLE void restart();//if restart button is pushed, this function is called
 
 signals:
-    void gamechanged();//signal that tells when we call Q_INVOKABLE function
-
+    void gamechanged();//signal that tells when we call Q_PROPERTY
 
 private:
     int compteur=0;//pour voir on est dans quelle phase, this value increases as the game proceed
