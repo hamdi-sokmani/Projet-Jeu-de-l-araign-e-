@@ -9,15 +9,15 @@ class Game : public QObject
     Q_OBJECT
 public:
     explicit Game(QObject *parent = nullptr);
-    Q_INVOKABLE void gestion(int position);
+    Q_INVOKABLE void gestion(int position);//function called when case is pressed
     void phase1(int place); //gère la partie quand les 6 jetons ne sont pas encore mis
     void phase2_1(int place); //phase for taking pion
     void phase2_2(int place);//phase for putting pion
     void contrainte_deplacement(int case_number);
     void contrainte_takepion();
     Q_INVOKABLE QList<QString> readPos(); //liste des positions utilisées
-    Q_PROPERTY(QList<QString> gameQML READ readPos NOTIFY gamechanged);
-    Q_INVOKABLE QString which_turn();
+    Q_PROPERTY(QList<QString> gameQML READ readPos NOTIFY gamechanged);//gameQML contains list of color
+    Q_INVOKABLE QString which_turn();//to tell which turn
     Q_PROPERTY(QString current_color READ which_turn NOTIFY gamechanged);
     void condition_winner();//to check condition of win
     Q_INVOKABLE QString winner_color();
