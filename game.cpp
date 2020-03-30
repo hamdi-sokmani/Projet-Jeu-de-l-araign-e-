@@ -1,6 +1,6 @@
 #include "game.h"
 #include <iostream>
-
+#include <case.h>
 using namespace std;
 
 Game::Game(QObject *parent) : QObject(parent)
@@ -22,7 +22,6 @@ void Game::gestion(int place)
         Game::phase2(place);
     }
     condition_winner();
-    cout<<winner<<endl;
     gamechanged();
 }
 
@@ -78,6 +77,7 @@ QList<QString> Game::readPos()
         {
             positions[i]=orange;
         }
+
     }
     return positions;
 }
@@ -161,6 +161,16 @@ QString Game::winner_color()
     }
 
     return color;
+}
 
+void Game::restart(){
+    compteur =0; //0 compteur
+    winner=0;
+    for (int i=0;i<9;i++)
+    {
+        listecases[i].initialize();
+    }
 
+    color_exist=true;
+    gamechanged();
 }

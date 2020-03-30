@@ -410,6 +410,50 @@ Rectangle{
 
 
     }
+    Rectangle{
+        id: restart
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 40
+        width: 115
+        height: 30
+        color: "#cd853f"
+        radius:10
+
+        Text{
+            id:text_restart
+            text: qsTr("Restart")
+            anchors.centerIn: restart
+            color: "#ffffff"
+            font.family: "Helvetica"
+            font.pointSize: 16
+        }
+        MouseArea{
+            id:mouse_restart
+            anchors.fill:restart
+            hoverEnabled: true;
+            onEntered: {
+                restart.color="#a0522d"
+            }
+            onExited: {
+                restart.color="#cd853f"
+            }
+            onClicked: {
+                Game.restart()
+                colorArea0.color=Game.gameQML[0]
+                colorArea1.color=Game.gameQML[1]
+                colorArea2.color=Game.gameQML[2]
+                colorArea3.color=Game.gameQML[3]
+                colorArea4.color=Game.gameQML[4]
+                colorArea5.color=Game.gameQML[5]
+                colorArea6.color=Game.gameQML[6]
+                colorArea7.color=Game.gameQML[7]
+                colorArea8.color=Game.gameQML[8]
+
+            }
+        }
+
+   }
 
 
 }

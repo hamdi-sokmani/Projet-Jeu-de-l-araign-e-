@@ -23,3 +23,8 @@ int Case::getJoueur(){
 void Case::setJoueur(int player){
     joueur=player;
 }
+
+void Case::initialize()
+{
+    joueur=0;
+}

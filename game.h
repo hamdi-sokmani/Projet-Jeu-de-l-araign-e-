@@ -20,6 +20,7 @@ public:
     void win();
     Q_INVOKABLE QString winner_color();
     Q_PROPERTY(QString winner_color READ winner_color NOTIFY gamechanged);
+    Q_INVOKABLE void restart();
 
 
 signals:
