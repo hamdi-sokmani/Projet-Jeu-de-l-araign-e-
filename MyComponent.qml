@@ -1,9 +1,10 @@
 import QtQuick 2.0
 Rectangle{
     id: rect
+
     color:"lightyellow"
-    width: 500
-    height: 500
+    width: 350
+    height: 470
 
 
     Rectangle{
