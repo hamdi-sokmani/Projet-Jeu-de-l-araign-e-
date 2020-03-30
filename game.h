@@ -19,7 +19,7 @@ signals:
 
 
 private:
-    int compteur;//pour voir on est dans quelle phase
+    int compteur=0;//pour voir on est dans quelle phase
     Case listecases[8];
 };
 

@@ -11,7 +11,7 @@ void Game::gestion(int place)
 {
     if (compteur<6)
     {
-        phase1(place);
+        Game::phase1(place);
         compteur++;
     }
     else
@@ -33,7 +33,8 @@ QList<QString> Game::readPos()
 {
     QString gris="gainsboro", orange="#ff8300", bleu="#0032a0";
     QList<QString> positions;
-    for(int j=0;j<9;j++){
+    for(int j=0;j<9;j++)
+    {
         positions<<gris;
     }
     for(int i=0; i<9; i++)
@@ -46,7 +47,7 @@ QList<QString> Game::readPos()
         {
             positions[i]=bleu;
         }
-        else
+        if(listecases[i].getJoueur()==2)
         {
             positions[i]=orange;
         }

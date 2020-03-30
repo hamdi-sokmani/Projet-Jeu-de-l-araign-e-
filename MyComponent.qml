@@ -95,7 +95,7 @@ Rectangle{
             anchors.top: parent.top
             anchors.topMargin: -12.5
             anchors.left: parent.left
-            color:gameQML[0]
+            color:Game.gameQML[0]
 
 
         }
@@ -106,7 +106,7 @@ Rectangle{
             anchors.top: parent.top
             anchors.topMargin: -12.5
             anchors.horizontalCenter: parent.horizontalCenter
-            color:gameQML[1]
+            color:Game.gameQML[1]
 
         }
 
@@ -119,7 +119,7 @@ Rectangle{
             anchors.right: parent.right
             anchors.top: parent.top
             anchors.topMargin: -12.5
-            color:gameQML[2]
+            color:Game.gameQML[2]
 
         }
 
@@ -130,7 +130,7 @@ Rectangle{
             anchors.leftMargin: -12.5
             anchors.verticalCenter: parent.verticalCenter
             anchors.left: parent.left
-            color:gameQML[3]
+            color:Game.gameQML[3]
 
         }
 
@@ -140,7 +140,7 @@ Rectangle{
             height: 25
             anchors.verticalCenter: parent.verticalCenter
             anchors.horizontalCenter: parent.horizontalCenter
-            color:gameQML[4]
+            color:Game.gameQML[4]
 
         }
 
@@ -151,7 +151,7 @@ Rectangle{
             anchors.rightMargin: -12.5
             anchors.verticalCenter: parent.verticalCenter
             anchors.right: parent.right
-            color:gameQML[5]
+            color:Game.gameQML[5]
 
         }
 
@@ -163,7 +163,7 @@ Rectangle{
             anchors.leftMargin: -12.5
             anchors.left: parent.left
             anchors.bottomMargin: -12.5
-            color:gameQML[6]
+            color:Game.gameQML[6]
 
         }
 
@@ -174,7 +174,7 @@ Rectangle{
             anchors.bottom: parent.bottom
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.bottomMargin: -12.5
-            color:gameQML[7]
+            color:Game.gameQML[7]
 
         }
 
@@ -186,7 +186,7 @@ Rectangle{
             anchors.rightMargin: -12.5
             anchors.right: parent.right
             anchors.bottomMargin: -12.5
-            color:gameQML[8]
+            color:Game.gameQML[8]
 
         }
         MouseArea {
@@ -194,7 +194,7 @@ Rectangle{
             anchors.fill:colorArea0
             hoverEnabled: true;
             onExited: {
-                colorArea1.color=gameQML[0]
+                colorArea0.color=Game.gameQML[0]
             }
 
             onEntered: {
@@ -216,7 +216,7 @@ Rectangle{
             anchors.fill:colorArea1
             hoverEnabled: true;
             onExited: {
-                colorArea1.color=gameQML[1]
+                colorArea1.color=Game.gameQML[1]
             }
 
             onEntered: {
@@ -233,7 +233,7 @@ Rectangle{
            anchors.fill:colorArea2
            hoverEnabled: true;
            onExited: {
-               colorArea2.color=gameQML[2]
+               colorArea2.color=Game.gameQML[2]
            }
 
            onEntered: {
@@ -249,7 +249,7 @@ Rectangle{
             anchors.fill:colorArea3
             hoverEnabled: true;
             onExited: {
-                colorArea3.color=gameQML[3]
+                colorArea3.color=Game.gameQML[3]
             }
 
             onEntered: {
@@ -266,7 +266,7 @@ Rectangle{
             anchors.fill:colorArea4
             hoverEnabled: true;
             onExited: {
-                colorArea4.color=gameQML[4]
+                colorArea4.color=Game.gameQML[4]
             }
 
             onEntered: {
@@ -283,7 +283,7 @@ Rectangle{
             anchors.fill:colorArea5
             hoverEnabled: true;
             onExited: {
-                colorArea5.color=gameQML[5]
+                colorArea5.color=Game.gameQML[5]
             }
 
             onEntered: {
@@ -300,7 +300,7 @@ Rectangle{
             anchors.fill:colorArea6
             hoverEnabled: true;
             onExited: {
-                colorArea6.color=gameQML[6]
+                colorArea6.color=Game.gameQML[6]
             }
 
             onEntered: {
@@ -317,7 +317,7 @@ Rectangle{
             anchors.fill:colorArea7
             hoverEnabled: true;
             onExited: {
-                colorArea7.color=gameQML[7]
+                colorArea7.color=Game.gameQML[7]
             }
 
             onEntered: {
@@ -334,7 +334,7 @@ Rectangle{
             anchors.fill:colorArea8
             hoverEnabled: true;
             onExited: {
-                colorArea8.color=gameQML[8]
+                colorArea8.color=Game.gameQML[8]
             }
 
             onEntered: {
