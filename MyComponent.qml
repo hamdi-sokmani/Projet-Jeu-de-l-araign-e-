@@ -3,8 +3,8 @@ Rectangle{
     id: rect
 
     color:"lightyellow"
-    width: 350
-    height: 470
+    width: 330
+    height: 430
 
 
     Rectangle{

@@ -16,14 +16,13 @@ void Game::gestion(int place)
             Game::phase1(place);
             compteur++;
         }
-
     }
     else
     {
-
         Game::phase2(place);
-
     }
+    condition_winner();
+    cout<<winner<<endl;
     gamechanged();
 }
 
@@ -89,7 +88,6 @@ QString Game::which_turn()
      QString current_color;
 
 
-     cout<<compteur<<endl;
      if (compteur%2==0)
      {
          current_color=bleu;
@@ -104,3 +102,65 @@ QString Game::which_turn()
 
 }
 
+void Game::condition_winner()
+{
+    for (int i=1;i<=2;i++)
+    {
+        if(listecases[0].getJoueur()==i && listecases[1].getJoueur()==i && listecases[2].getJoueur()==i)
+        {
+            winner=i;
+        }
+        if(listecases[3].getJoueur()==i && listecases[4].getJoueur()==i && listecases[5].getJoueur()==i)
+        {
+            winner=i;
+        }
+        if(listecases[6].getJoueur()==i && listecases[7].getJoueur()==i && listecases[8].getJoueur()==i)
+        {
+            winner=i;
+        }
+        if(listecases[0].getJoueur()==i && listecases[3].getJoueur()==i && listecases[6].getJoueur()==i)
+        {
+            winner=i;
+        }
+        if(listecases[1].getJoueur()==i && listecases[4].getJoueur()==i && listecases[7].getJoueur()==i)
+        {
+            winner=i;
+        }
+        if(listecases[2].getJoueur()==i && listecases[5].getJoueur()==i && listecases[8].getJoueur()==i)
+        {
+            winner=i;
+        }
+        if(listecases[2].getJoueur()==i && listecases[4].getJoueur()==i && listecases[6].getJoueur()==i)
+        {
+            winner=i;
+        }
+        if(listecases[0].getJoueur()==i && listecases[4].getJoueur()==i && listecases[8].getJoueur()==i)
+        {
+            winner=i;
+        }
+
+    }
+
+}
+
+QString Game::winner_color()
+{
+    QString gris="gainsboro", orange="#ff8300", bleu="#0032a0";
+    QString color;
+    if (winner==1)
+    {
+        color=bleu;
+    }
+    if (winner==2)
+    {
+        color=orange;
+    }
+    if (winner==0)
+    {
+        color=gris;
+    }
+
+    return color;
+
+
+}
