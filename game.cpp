@@ -5,24 +5,24 @@
 using namespace std;
 
 QString colors[10]={"#ff0000",
-                    "#0000FF",
+                    "#0000ff",
                     "#008000",
-                    "#FFFF00",
-                    "#FFA500",
+                    "#ffff00",
+                    "#ffa500",
                     "#800080",
-                    "#40E0D0",
-                    "#EE82EE",
+                    "#40e0d0",
+                    "#ee82ee",
                     "#000000",
-                    "#FFFFFF"};
+                    "#ffffff"};
 
 Game::Game(QObject *parent) : QObject(parent)
 {
     compteur=0;
     srand( (unsigned)time(NULL) );
     int index1,index2;
-    index1 = rand()%10+1;
-    index2 = rand()%10+1;
-    while(index1==index2) index2=rand()%10+1;
+    index1 = rand()%10;
+    index2 = rand()%10;
+    while(index1==index2) index2=rand()%10;
     playersColors.first=colors[index1];
     playersColors.second=colors[index2];
     gamechanged();
@@ -56,6 +56,25 @@ void Game::gestion(int place)
     condition_winner();
     gamechanged();
 }
+
+void Game::changePlayer1Color(QString null){
+    int index1 = rand()%10;
+    while(colors[index1]==playersColors.first || colors[index1]==playersColors.second){
+        index1 = rand()%10;
+    }
+    playersColors.first = colors[index1];
+    gamechanged();
+}
+
+void Game::changePlayer2Color(QString null){
+    int index2 = rand()%10;
+    while(colors[index2]==playersColors.second || colors[index2]==playersColors.first){
+        index2 = rand()%10;
+    }
+    playersColors.second = colors[index2];
+    gamechanged();
+}
+
 
 void Game::phase1(int place){
     listecases[place].setJoueur(compteur%2+1);
@@ -313,3 +332,4 @@ void Game::restart(){
     color_exist=true;
     gamechanged();
 }
+

@@ -23,9 +23,12 @@ public:
     Q_PROPERTY(QString phase READ getPhase NOTIFY gamechanged)
 
     Q_INVOKABLE QString getPlayer1Color(){return playersColors.first;}
+    Q_INVOKABLE void changePlayer1Color(QString null);
+    Q_PROPERTY(QString player1Color READ getPlayer1Color WRITE changePlayer1Color NOTIFY gamechanged)
+
+    Q_INVOKABLE void changePlayer2Color(QString null);
     Q_INVOKABLE QString getPlayer2Color(){return playersColors.second;}
-    Q_PROPERTY(QString player1Color READ getPlayer1Color NOTIFY gamechanged)
-    Q_PROPERTY(QString player2Color READ getPlayer2Color NOTIFY gamechanged)
+    Q_PROPERTY(QString player2Color READ getPlayer2Color WRITE changePlayer2Color NOTIFY gamechanged)
 
     Q_INVOKABLE QList<QString> readPos(); //liste des positions utilisées
     Q_PROPERTY(QList<QString> gameQML READ readPos NOTIFY gamechanged)//gameQML contains list of color

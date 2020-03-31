@@ -68,32 +68,8 @@ Window {
 
 
         }
-        Rectangle{
-            id: turn_box
-            width: 25
-            height: 25
-            anchors.left: parent.left
-            anchors.bottom: parent.bottom
-            color:{
 
-
-                if( Game.winner_color===Game.player1Color||Game.winner_color===Game.player2Color)
-                {
-                    Game.winner_color
-                }
-                else
-                {
-                    Game.current_color
-                }
-
-            }
-        }
 
     }
-
-
-
-
-
 }
 

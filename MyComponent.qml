@@ -211,10 +211,10 @@ Rectangle{
                 }
             }
             onClicked:{
-                if( Game.winner_color!=="#ff8300"&&Game.winner_color!=="#0032a0")
+                if( Game.winner_color!==Game.player1Color&&Game.winner_color!==Game.player2Color)
                 {
-                Game.gestion(0);
-                colorArea0.color=Game.gameQML[0]
+                    Game.gestion(0);
+                    colorArea0.color=Game.gameQML[0]
                 }
             }
         }
@@ -239,36 +239,36 @@ Rectangle{
                 }
             }
             onClicked:{
-                if(Game.winner_color!=="#ff8300"&&Game.winner_color!=="#0032a0")
+                if(Game.winner_color!==Game.player1Color&&Game.winner_color!==Game.player2Color)
                 {
-                Game.gestion(1);
-                colorArea1.color=Game.gameQML[1]
+                    Game.gestion(1);
+                    colorArea1.color=Game.gameQML[1]
                 }
             }
         }
 
         MouseArea {
             id: mouseArea2
-           anchors.fill:colorArea2
-           hoverEnabled: true;
-           onExited: {
-               if(colorArea2.color=="#c0c0c0")
-               {
-                   colorArea2.color="gainsboro"
-               }
-           }
-
-           onEntered: {
-               if(colorArea2.color=="#dcdcdc")
-               {
-                   colorArea2.color="silver"
-               }
-           }
-            onClicked: {
-                if( Game.winner_color!=="#ff8300"&&Game.winner_color!=="#0032a0")
+            anchors.fill:colorArea2
+            hoverEnabled: true;
+            onExited: {
+                if(colorArea2.color=="#c0c0c0")
                 {
-                Game.gestion(2);
-                 colorArea2.color=Game.gameQML[2]
+                    colorArea2.color="gainsboro"
+                }
+            }
+
+            onEntered: {
+                if(colorArea2.color=="#dcdcdc")
+                {
+                    colorArea2.color="silver"
+                }
+            }
+            onClicked: {
+                if( Game.winner_color!==Game.player1Color&&Game.winner_color!==Game.player2Color)
+                {
+                    Game.gestion(2);
+                    colorArea2.color=Game.gameQML[2]
                 }
             }
         }
@@ -291,10 +291,10 @@ Rectangle{
                 }
             }
             onClicked:{
-                if(Game.winner_color!=="#ff8300"&&Game.winner_color!=="#0032a0")
+                if(Game.winner_color!==Game.player1Color&&Game.winner_color!==Game.player2Color)
                 {
-                Game.gestion(3);
-                 colorArea3.color=Game.gameQML[3]
+                    Game.gestion(3);
+                    colorArea3.color=Game.gameQML[3]
                 }
             }
         }
@@ -317,11 +317,11 @@ Rectangle{
                 }
             }
             onClicked:{
-                if( Game.winner_color!=="#ff8300"&&Game.winner_color!=="#0032a0")
+                if( Game.winner_color!==Game.player1Color&&Game.winner_color!==Game.player2Color)
                 {
 
-                Game.gestion(4);
-                 colorArea4.color=Game.gameQML[4]
+                    Game.gestion(4);
+                    colorArea4.color=Game.gameQML[4]
                 }
             }
         }
@@ -344,15 +344,15 @@ Rectangle{
                 }
             }
             onClicked:{
-                if( Game.winner_color!=="#ff8300"&&Game.winner_color!=="#0032a0")
+                if( Game.winner_color!==Game.player1Color&&Game.winner_color!==Game.player2Color)
                 {
 
-                Game.gestion(5);
-                 colorArea5.color=Game.gameQML[5]
+                    Game.gestion(5);
+                    colorArea5.color=Game.gameQML[5]
 
                 }
+            }
         }
-}
         MouseArea {
             id: mouseArea6
             anchors.fill:colorArea6
@@ -371,11 +371,11 @@ Rectangle{
                 }
             }
             onClicked:{
-                if( Game.winner_color!=="#ff8300"&&Game.winner_color!=="#0032a0")
+                if( Game.winner_color!==Game.player1Color&&Game.winner_color!==Game.player2Color)
                 {
 
-                Game.gestion(6);
-                 colorArea6.color=Game.gameQML[6]
+                    Game.gestion(6);
+                    colorArea6.color=Game.gameQML[6]
                 }
             }
         }
@@ -398,10 +398,10 @@ Rectangle{
                 }
             }
             onClicked:{
-                if( Game.winner_color!=="#ff8300"&&Game.winner_color!=="#0032a0")
+                if( Game.winner_color!==Game.player1Color&&Game.winner_color!==Game.player2Color)
                 {
-                Game.gestion(7);
-                 colorArea7.color=Game.gameQML[7]
+                    Game.gestion(7);
+                    colorArea7.color=Game.gameQML[7]
                 }
             }
         }
@@ -424,10 +424,10 @@ Rectangle{
                 }
             }
             onClicked: {
-                if(Game.winner_color!=="#ff8300"&&Game.winner_color!=="#0032a0")
+                if(Game.winner_color!==Game.player1Color&&Game.winner_color!==Game.player2Color)
                 {
                     Game.gestion(8);
-                     colorArea8.color=Game.gameQML[8]
+                    colorArea8.color=Game.gameQML[8]
 
                 }
             }
@@ -478,7 +478,75 @@ Rectangle{
             }
         }
 
-   }
+    }
+
+    Rectangle{
+        id: rec_turn
+        y: 18
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.top: parent.top
+        anchors.topMargin: 60
+        width: 115
+        height: 30
+        color: "transparent"
+        anchors.horizontalCenterOffset: 1
+
+        Rectangle{
+            id: turn_box
+            x: -108
+            y: 345
+            width: 25
+            height: 25
+            anchors.left: parent.left
+            anchors.bottom: parent.bottom
+            color:{
+
+                if( Game.winner_color===Game.player1Color||Game.winner_color===Game.player2Color)
+                {
+                    Game.winner_color
+                }
+                else
+                {
+                    Game.current_color
+                }
+
+            }
+
+            MouseArea {
+                id: changeColor
+                width: 25
+                height: 25
+                acceptedButtons: Qt.LeftButton
+                onClicked: {
+                    if(turn_box.color==Game.player1Color){
+                        Game.changePlayer1Color("");
+                        colorArea0.color=Game.gameQML[0]
+                        colorArea1.color=Game.gameQML[1]
+                        colorArea2.color=Game.gameQML[2]
+                        colorArea3.color=Game.gameQML[3]
+                        colorArea4.color=Game.gameQML[4]
+                        colorArea5.color=Game.gameQML[5]
+                        colorArea6.color=Game.gameQML[6]
+                        colorArea7.color=Game.gameQML[7]
+                        colorArea8.color=Game.gameQML[8]
+                    }
+                    else if (turn_box.color==Game.player2Color){
+                        Game.changePlayer2Color("");
+                        colorArea0.color=Game.gameQML[0]
+                        colorArea1.color=Game.gameQML[1]
+                        colorArea2.color=Game.gameQML[2]
+                        colorArea3.color=Game.gameQML[3]
+                        colorArea4.color=Game.gameQML[4]
+                        colorArea5.color=Game.gameQML[5]
+                        colorArea6.color=Game.gameQML[6]
+                        colorArea7.color=Game.gameQML[7]
+                        colorArea8.color=Game.gameQML[8]
+                    }
+                }
+            }
+        }
+
+    }
 
 
 }
