@@ -1,11 +1,31 @@
 #include "game.h"
 #include <iostream>
+#include <random>
 #include <case.h>
 using namespace std;
 
+QString colors[10]={"#ff0000",
+                    "#0000FF",
+                    "#008000",
+                    "#FFFF00",
+                    "#FFA500",
+                    "#800080",
+                    "#40E0D0",
+                    "#EE82EE",
+                    "#000000",
+                    "#FFFFFF"};
+
 Game::Game(QObject *parent) : QObject(parent)
 {
-
+    compteur=0;
+    srand( (unsigned)time(NULL) );
+    int index1,index2;
+    index1 = rand()%10+1;
+    index2 = rand()%10+1;
+    while(index1==index2) index2=rand()%10+1;
+    playersColors.first=colors[index1];
+    playersColors.second=colors[index2];
+    gamechanged();
 }
 void Game::gestion(int place)
 {
@@ -57,6 +77,7 @@ void Game::phase2_2(int place){
             listecases[place].setJoueur(compteur%2+1);
             color_exist=true;
             compteur++;
+            gamechanged();
         }
 }
 void Game::contrainte_deplacement(int case_number)
@@ -174,7 +195,7 @@ void Game::contrainte_takepion()
 
 QList<QString> Game::readPos()
 {
-    QString gris="gainsboro", orange="#ff8300", bleu="#0032a0";
+    QString gris="gainsboro";
     QList<QString> positions;
     for(int j=0;j<9;j++)
     {
@@ -190,11 +211,11 @@ QList<QString> Game::readPos()
         }
         if(listecases[i].getJoueur()==1)
         {
-            positions[i]=bleu;
+            positions[i]=playersColors.first;
         }
         if(listecases[i].getJoueur()==2)
         {
-            positions[i]=orange;
+            positions[i]=playersColors.second;
         }
 
     }
@@ -203,17 +224,16 @@ QList<QString> Game::readPos()
 
 QString Game::which_turn()
 {
-     QString orange="#ff8300", bleu="#0032a0";
      QString current_color;
 
 
      if (compteur%2==0)
      {
-         current_color=bleu;
+         current_color=playersColors.first;
      }
      if (compteur%2==1)
      {
-        current_color=orange;
+        current_color=playersColors.second;
      }
 
 
@@ -262,20 +282,17 @@ void Game::condition_winner()
 
 }
 
-
-
-
 QString Game::winner_color()
 {
-    QString gris="gainsboro", orange="#ff8300", bleu="#0032a0";
+    QString gris="gainsboro";
     QString color;
     if (winner==1)
     {
-        color=bleu;
+        color=playersColors.first;
     }
     if (winner==2)
     {
-        color=orange;
+        color=playersColors.second;
     }
     if (winner==0)
     {

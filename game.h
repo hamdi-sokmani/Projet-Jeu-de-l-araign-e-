@@ -4,6 +4,9 @@
 #include <QObject>
 #include "case.h"
 
+
+typedef std::pair<QString, QString> pair;
+
 class Game : public QObject
 {
     Q_OBJECT
@@ -15,26 +18,38 @@ public:
     void phase2_2(int place);//phase for putting pion
     void contrainte_deplacement(int case_number);
     void contrainte_takepion();
+
+    Q_INVOKABLE QString getPhase(){return (compteur<6)?"Phase 1":"Phase 2";}
+    Q_PROPERTY(QString phase READ getPhase NOTIFY gamechanged)
+
+    Q_INVOKABLE QString getPlayer1Color(){return playersColors.first;}
+    Q_INVOKABLE QString getPlayer2Color(){return playersColors.second;}
+    Q_PROPERTY(QString player1Color READ getPlayer1Color NOTIFY gamechanged)
+    Q_PROPERTY(QString player2Color READ getPlayer2Color NOTIFY gamechanged)
+
     Q_INVOKABLE QList<QString> readPos(); //liste des positions utilisées
-    Q_PROPERTY(QList<QString> gameQML READ readPos NOTIFY gamechanged);//gameQML contains list of color
+    Q_PROPERTY(QList<QString> gameQML READ readPos NOTIFY gamechanged)//gameQML contains list of color
+
     Q_INVOKABLE QString which_turn();//to tell which turn
-    Q_PROPERTY(QString current_color READ which_turn NOTIFY gamechanged);
+    Q_PROPERTY(QString current_color READ which_turn NOTIFY gamechanged)
+
     void condition_winner();//to check condition of win
     Q_INVOKABLE QString winner_color();
-    Q_PROPERTY(QString winner_color READ winner_color NOTIFY gamechanged);//string of winner color used in the part QML
+    Q_PROPERTY(QString winner_color READ winner_color NOTIFY gamechanged)//string of winner color used in the part QML
+
     Q_INVOKABLE void restart();//if restart button is pushed, this function is called
 
 signals:
     void gamechanged();//signal that tells when we call Q_PROPERTY
 
 private:
-    int compteur=0;//pour voir on est dans quelle phase, this value increases as the game proceed
+    int compteur;//pour voir on est dans quelle phase, this value increases as the game proceed
+    pair playersColors;
     Case listecases[9];//main list
     Case listecases_copy1[9];//sub list for contrainte_deplacement
     Case listecases_copy2[9];//sub ;ist for contrainte_takepion
     bool color_exist=true;//which phase we are in, take pion or put pion
     int winner=0;//if game is not finished winner=0, if finished winner=1 or 2
-
 };
 
 #endif // GAME_H
