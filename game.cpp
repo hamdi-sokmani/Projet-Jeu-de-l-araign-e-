@@ -4,6 +4,7 @@
 #include <case.h>
 using namespace std;
 
+/* List of colors that players can choose to be */
 QString colors[10]={"#ff0000",
                     "#0000ff",
                     "#008000",
@@ -18,6 +19,8 @@ QString colors[10]={"#ff0000",
 Game::Game(QObject *parent) : QObject(parent)
 {
     compteur=0;
+    Scores[0] = 0;
+    Scores[1] = 0;
     srand( (unsigned)time(NULL) );
     int index1,index2;
     index1 = rand()%10;
@@ -262,41 +265,53 @@ QString Game::which_turn()
 
 void Game::condition_winner()
 {
+    bool weHaveAWinner = false;
     for (int i=1;i<=2;i++)
     {
         if(listecases[0].getJoueur()==i && listecases[1].getJoueur()==i && listecases[2].getJoueur()==i)
         {
             winner=i;
+            weHaveAWinner = true;
         }
         if(listecases[3].getJoueur()==i && listecases[4].getJoueur()==i && listecases[5].getJoueur()==i)
         {
             winner=i;
+            weHaveAWinner = true;
         }
         if(listecases[6].getJoueur()==i && listecases[7].getJoueur()==i && listecases[8].getJoueur()==i)
         {
             winner=i;
+            weHaveAWinner = true;
         }
         if(listecases[0].getJoueur()==i && listecases[3].getJoueur()==i && listecases[6].getJoueur()==i)
         {
             winner=i;
+            weHaveAWinner = true;
         }
         if(listecases[1].getJoueur()==i && listecases[4].getJoueur()==i && listecases[7].getJoueur()==i)
         {
             winner=i;
+            weHaveAWinner = true;
         }
         if(listecases[2].getJoueur()==i && listecases[5].getJoueur()==i && listecases[8].getJoueur()==i)
         {
             winner=i;
+            weHaveAWinner = true;
         }
         if(listecases[2].getJoueur()==i && listecases[4].getJoueur()==i && listecases[6].getJoueur()==i)
         {
             winner=i;
+            weHaveAWinner = true;
         }
         if(listecases[0].getJoueur()==i && listecases[4].getJoueur()==i && listecases[8].getJoueur()==i)
         {
             winner=i;
+            weHaveAWinner = true;
         }
-
+        if (weHaveAWinner){
+            Scores[i-1]++;
+            weHaveAWinner = false;
+        }
     }
 
 }
@@ -322,7 +337,7 @@ QString Game::winner_color()
 }
 
 void Game::restart(){
-    compteur =0; //0 compteur
+    compteur=compteur%2; //Loser Player starts First
     winner=0;
     for (int i=0;i<9;i++)
     {

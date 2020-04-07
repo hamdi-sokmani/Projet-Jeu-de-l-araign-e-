@@ -485,11 +485,11 @@ Rectangle{
         y: 18
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.top: parent.top
-        anchors.topMargin: 60
+        anchors.topMargin: 79
         width: 115
         height: 30
         color: "transparent"
-        anchors.horizontalCenterOffset: 1
+        anchors.horizontalCenterOffset: 0
 
         Rectangle{
             id: turn_box
@@ -546,6 +546,40 @@ Rectangle{
             }
         }
 
+    }
+
+    Rectangle {
+        id: rec_scores
+        x: 0
+        y: 8
+        width: 202
+        height: 30
+        color: "#00000000"
+        anchors.horizontalCenterOffset: 1
+        Rectangle {
+            id: score_box1
+            x: 0
+            y: 0
+            width: 25
+            height: 25
+            color: Game.player1Color
+            anchors.bottom: parent.bottom
+            anchors.left: parent.left
+        }
+
+        Rectangle {
+            id: score_box2
+            x: 0
+            y: 5
+            width: 25
+            height: 25
+            color: Game.player2Color
+            anchors.bottom: parent.bottom
+            anchors.right: parent.right
+        }
+        anchors.top: parent.top
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.topMargin: 8
     }
 
 
