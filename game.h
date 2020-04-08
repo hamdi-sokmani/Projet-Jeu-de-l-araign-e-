@@ -47,13 +47,17 @@ public:
     Q_INVOKABLE int getScore2() { return Scores[1];} // to get player2 score
     Q_PROPERTY(int score2 READ getScore2 NOTIFY gamechanged)
 
+    Q_INVOKABLE QList<bool> getAvailableCases();
+    Q_PROPERTY(QList<bool> availableCases READ getAvailableCases() NOTIFY gamechanged)
+
     Q_INVOKABLE void restart();//if restart button is pushed, this function is called
 
 signals:
     void gamechanged();//signal that tells when we call Q_PROPERTY
 
 private:
-    int compteur;//pour voir on est dans quelle phase, this value increases as the game proceed
+    int compteur;//to see which player and what phase it is, this value increases as the game proceed
+    int th_phase2; // threshold after which phase2 begins
     pair playersColors; // pair of players colors
     int Scores[2]; // Players scores
     Case listecases[9];//main list

@@ -99,8 +99,10 @@ Rectangle{
             anchors.topMargin: -12.5
             anchors.left: parent.left
             color:Game.gameQML[0]
-
-
+            border.width: 3
+            border.color: {
+                (Game.availableCases[0])?"#008000":Game.gameQML[0];
+            }
         }
         Rectangle{
             id: colorArea1
@@ -110,7 +112,10 @@ Rectangle{
             anchors.topMargin: -12.5
             anchors.horizontalCenter: parent.horizontalCenter
             color:Game.gameQML[1]
-
+            border.width: 3
+            border.color: {
+                (Game.availableCases[1])?"#008000":Game.gameQML[1];
+            }
         }
 
 
@@ -123,7 +128,10 @@ Rectangle{
             anchors.top: parent.top
             anchors.topMargin: -12.5
             color:Game.gameQML[2]
-
+            border.width: 3
+            border.color: {
+                (Game.availableCases[2])?"#008000":Game.gameQML[2];
+            }
         }
 
         Rectangle {
@@ -134,7 +142,10 @@ Rectangle{
             anchors.verticalCenter: parent.verticalCenter
             anchors.left: parent.left
             color:Game.gameQML[3]
-
+            border.width: 3
+            border.color: {
+                (Game.availableCases[3])?"#008000":Game.gameQML[3];
+            }
         }
 
         Rectangle {
@@ -144,7 +155,10 @@ Rectangle{
             anchors.verticalCenter: parent.verticalCenter
             anchors.horizontalCenter: parent.horizontalCenter
             color:Game.gameQML[4]
-
+            border.width: 3
+            border.color: {
+                (Game.availableCases[4])?"#008000":Game.gameQML[4];
+            }
         }
 
         Rectangle {
@@ -155,6 +169,10 @@ Rectangle{
             anchors.verticalCenter: parent.verticalCenter
             anchors.right: parent.right
             color:Game.gameQML[5]
+            border.width: 3
+            border.color: {
+                (Game.availableCases[5])?"#008000":Game.gameQML[5];
+            }
 
         }
 
@@ -167,6 +185,10 @@ Rectangle{
             anchors.left: parent.left
             anchors.bottomMargin: -12.5
             color:Game.gameQML[6]
+            border.width: 3
+            border.color: {
+                (Game.availableCases[6])?"#008000":Game.gameQML[6];
+            }
 
         }
 
@@ -178,6 +200,10 @@ Rectangle{
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.bottomMargin: -12.5
             color:Game.gameQML[7]
+            border.width: 3
+            border.color: {
+                (Game.availableCases[7])?"#008000":Game.gameQML[7];
+            }
 
         }
 
@@ -190,6 +216,10 @@ Rectangle{
             anchors.right: parent.right
             anchors.bottomMargin: -12.5
             color:Game.gameQML[8]
+            border.width: 3
+            border.color: {
+                (Game.availableCases[8])?"#008000":Game.gameQML[8];
+            }
 
         }
         MouseArea {

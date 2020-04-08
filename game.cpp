@@ -5,22 +5,26 @@
 using namespace std;
 
 /* List of colors that players can choose to be */
-QString colors[10]={"#ff0000",
-                    "#0000ff",
-                    "#008000",
-                    "#ffff00",
-                    "#ffa500",
-                    "#800080",
-                    "#40e0d0",
-                    "#ee82ee",
-                    "#000000",
-                    "#ffffff"};
+QString colors[10]={"#ff0000", //Red
+                    "#0000ff", //Blue
+                    "#FFC0CB", //Pink
+                    "#ffff00", //Yellow
+                    "#ffa500", //Orange
+                    "#800080", //Purple
+                    "#40e0d0", //Turquoise
+                    "#ee82ee", //Violet
+                    "#000000", //White
+                    "#ffffff"}; //Black
 
 Game::Game(QObject *parent) : QObject(parent)
 {
     compteur=0;
+    th_phase2 = 6;
     Scores[0] = 0;
     Scores[1] = 0;
+    for (int i = 0; i < 9; i++){
+        listecases_copy1[i].setJoueur(3);
+    }
     srand( (unsigned)time(NULL) );
     int index1,index2;
     index1 = rand()%10;
@@ -32,7 +36,7 @@ Game::Game(QObject *parent) : QObject(parent)
 }
 void Game::gestion(int place)
 {
-    if (compteur<6)
+    if (compteur<th_phase2)
     {
         if(listecases[place].getJoueur()==0)
         {
@@ -44,7 +48,7 @@ void Game::gestion(int place)
     {
         if(color_exist)
         {
-            contrainte_takepion();
+            contrainte_takepion(); // eliminate the boxes that you can't move
             if (listecases_copy2[place].getJoueur()!=3)
             {
                 Game::phase2_1(place);
@@ -87,9 +91,10 @@ void Game::phase2_1(int place){
 
         if (listecases[place].getJoueur()==(compteur%2+1))
         {
-            contrainte_deplacement(place);
+            contrainte_deplacement(place); // eliminate the boxes that you can't move selected box to
             listecases[place].setJoueur(0);
             color_exist=false;
+            gamechanged();
         }
 }
 void Game::phase2_2(int place){
@@ -99,12 +104,14 @@ void Game::phase2_2(int place){
             listecases[place].setJoueur(compteur%2+1);
             color_exist=true;
             compteur++;
+            for (int i = 0; i < 9; i++){
+                listecases_copy1[i].setJoueur(3);
+            }
             gamechanged();
         }
 }
 void Game::contrainte_deplacement(int case_number)
 {
-
     for (int i=0;i<9;i++)
     {
         listecases_copy1[i].setJoueur(listecases[i].getJoueur());
@@ -244,6 +251,16 @@ QList<QString> Game::readPos()
     return positions;
 }
 
+QList<bool> Game::getAvailableCases(){
+    QList<bool> available;
+    for (int i = 0; i<9; i++){
+        bool cond = (listecases_copy1[i].getJoueur()==0)?true:false;
+        available << cond;
+    }
+    return available;
+}
+
+
 QString Game::which_turn()
 {
      QString current_color;
@@ -338,6 +355,7 @@ QString Game::winner_color()
 
 void Game::restart(){
     compteur=compteur%2; //Loser Player starts First
+    th_phase2 = (compteur==0)?6:7; // Adjusts the limit to match 6 turns until phase2 in both cases
     winner=0;
     for (int i=0;i<9;i++)
     {
