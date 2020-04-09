@@ -50,6 +50,9 @@ public:
     Q_INVOKABLE QList<bool> getAvailableCases();
     Q_PROPERTY(QList<bool> availableCases READ getAvailableCases() NOTIFY gamechanged)
 
+    Q_INVOKABLE int getClickedCase();
+    Q_PROPERTY(int clickedCase READ getClickedCase() NOTIFY gamechanged)
+
     Q_INVOKABLE void restart();//if restart button is pushed, this function is called
 
 signals:
@@ -58,6 +61,7 @@ signals:
 private:
     int compteur;//to see which player and what phase it is, this value increases as the game proceed
     int th_phase2; // threshold after which phase2 begins
+    int indexOfClicked;
     pair playersColors; // pair of players colors
     int Scores[2]; // Players scores
     Case listecases[9];//main list

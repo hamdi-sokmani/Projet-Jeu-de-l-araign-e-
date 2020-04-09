@@ -5,21 +5,25 @@
 using namespace std;
 
 /* List of colors that players can choose to be */
-QString colors[10]={"#ff0000", //Red
-                    "#0000ff", //Blue
-                    "#FFC0CB", //Pink
-                    "#ffff00", //Yellow
-                    "#ffa500", //Orange
-                    "#800080", //Purple
-                    "#40e0d0", //Turquoise
-                    "#ee82ee", //Violet
-                    "#000000", //White
-                    "#ffffff"}; //Black
+#define nbColors 10
+QString colors[nbColors]=
+                   {"#ff0000", //Red-1
+                    "#0000ff", //Blue-2
+                    "#FFC0CB", //Pink-3
+                    "#ffff00", //Yellow-4
+                    "#ffa500", //Orange-5
+                    "#800080", //Purple-6
+                    "#008000", //Green-7
+                    "#ee82ee", //Violet-8
+                    "#000000", //White-9
+                    "#ffffff"  //Black-10
+                   };
 
 Game::Game(QObject *parent) : QObject(parent)
 {
     compteur=0;
     th_phase2 = 6;
+    indexOfClicked = -1;
     Scores[0] = 0;
     Scores[1] = 0;
     for (int i = 0; i < 9; i++){
@@ -27,9 +31,9 @@ Game::Game(QObject *parent) : QObject(parent)
     }
     srand( (unsigned)time(NULL) );
     int index1,index2;
-    index1 = rand()%10;
-    index2 = rand()%10;
-    while(index1==index2) index2=rand()%10;
+    index1 = rand()%nbColors;
+    index2 = rand()%nbColors;
+    while(index1==index2) index2=rand()%nbColors;
     playersColors.first=colors[index1];
     playersColors.second=colors[index2];
     gamechanged();
@@ -65,18 +69,18 @@ void Game::gestion(int place)
 }
 
 void Game::changePlayer1Color(QString null){
-    int index1 = rand()%10;
+    int index1 = rand()%nbColors;
     while(colors[index1]==playersColors.first || colors[index1]==playersColors.second){
-        index1 = rand()%10;
+        index1 = rand()%nbColors;
     }
     playersColors.first = colors[index1];
     gamechanged();
 }
 
 void Game::changePlayer2Color(QString null){
-    int index2 = rand()%10;
+    int index2 = rand()%nbColors;
     while(colors[index2]==playersColors.second || colors[index2]==playersColors.first){
-        index2 = rand()%10;
+        index2 = rand()%nbColors;
     }
     playersColors.second = colors[index2];
     gamechanged();
@@ -93,6 +97,7 @@ void Game::phase2_1(int place){
         {
             contrainte_deplacement(place); // eliminate the boxes that you can't move selected box to
             listecases[place].setJoueur(0);
+            indexOfClicked = place;
             color_exist=false;
             gamechanged();
         }
@@ -104,6 +109,7 @@ void Game::phase2_2(int place){
             listecases[place].setJoueur(compteur%2+1);
             color_exist=true;
             compteur++;
+            indexOfClicked = -1;
             for (int i = 0; i < 9; i++){
                 listecases_copy1[i].setJoueur(3);
             }
@@ -260,6 +266,10 @@ QList<bool> Game::getAvailableCases(){
     return available;
 }
 
+int Game::getClickedCase(){
+    return indexOfClicked;
+}
+
 
 QString Game::which_turn()
 {
@@ -361,7 +371,7 @@ void Game::restart(){
     {
         listecases[i].initialize();
     }
-
+    indexOfClicked = -1;
     color_exist=true;
     gamechanged();
 }

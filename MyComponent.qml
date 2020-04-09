@@ -101,7 +101,7 @@ Rectangle{
             color:Game.gameQML[0]
             border.width: 3
             border.color: {
-                (Game.availableCases[0])?"#008000":Game.gameQML[0];
+                (Game.availableCases[0])?"#13598b":(Game.clickedCase==0)?"#A0BCD0":Game.gameQML[0];
             }
         }
         Rectangle{
@@ -114,7 +114,7 @@ Rectangle{
             color:Game.gameQML[1]
             border.width: 3
             border.color: {
-                (Game.availableCases[1])?"#008000":Game.gameQML[1];
+                (Game.availableCases[1])?"#13598b":(Game.clickedCase==1)?"#A0BCD0":Game.gameQML[1];
             }
         }
 
@@ -130,7 +130,7 @@ Rectangle{
             color:Game.gameQML[2]
             border.width: 3
             border.color: {
-                (Game.availableCases[2])?"#008000":Game.gameQML[2];
+                (Game.availableCases[2])?"#13598b":(Game.clickedCase==2)?"#A0BCD0":Game.gameQML[2];
             }
         }
 
@@ -144,7 +144,7 @@ Rectangle{
             color:Game.gameQML[3]
             border.width: 3
             border.color: {
-                (Game.availableCases[3])?"#008000":Game.gameQML[3];
+                (Game.availableCases[3])?"#13598b":(Game.clickedCase==3)?"#A0BCD0":Game.gameQML[3];
             }
         }
 
@@ -157,7 +157,7 @@ Rectangle{
             color:Game.gameQML[4]
             border.width: 3
             border.color: {
-                (Game.availableCases[4])?"#008000":Game.gameQML[4];
+                (Game.availableCases[4])?"#13598b":(Game.clickedCase==4)?"#A0BCD0":Game.gameQML[4];
             }
         }
 
@@ -171,7 +171,7 @@ Rectangle{
             color:Game.gameQML[5]
             border.width: 3
             border.color: {
-                (Game.availableCases[5])?"#008000":Game.gameQML[5];
+                (Game.availableCases[5])?"#13598b":(Game.clickedCase==5)?"#A0BCD0":Game.gameQML[5];
             }
 
         }
@@ -187,7 +187,7 @@ Rectangle{
             color:Game.gameQML[6]
             border.width: 3
             border.color: {
-                (Game.availableCases[6])?"#008000":Game.gameQML[6];
+                (Game.availableCases[6])?"#13598b":(Game.clickedCase==6)?"#A0BCD0":Game.gameQML[6];
             }
 
         }
@@ -202,7 +202,7 @@ Rectangle{
             color:Game.gameQML[7]
             border.width: 3
             border.color: {
-                (Game.availableCases[7])?"#008000":Game.gameQML[7];
+                (Game.availableCases[7])?"#13598b":(Game.clickedCase==7)?"#A0BCD0":Game.gameQML[7];
             }
 
         }
@@ -218,7 +218,7 @@ Rectangle{
             color:Game.gameQML[8]
             border.width: 3
             border.color: {
-                (Game.availableCases[8])?"#008000":Game.gameQML[8];
+                (Game.availableCases[8])?"#13598b":(Game.clickedCase==8)?"#A0BCD0":Game.gameQML[8];
             }
 
         }
