@@ -7,16 +7,16 @@ using namespace std;
 /* List of colors that players can choose to be */
 #define nbColors 10
 QString colors[nbColors]=
-                   {"#ff0000", //Red-1
-                    "#0000ff", //Blue-2
+                   {"#FF0000", //Red-1
+                    "#0000FF", //Blue-2
                     "#FFC0CB", //Pink-3
                     "#ffff00", //Yellow-4
-                    "#ffa500", //Orange-5
+                    "#ffA500", //Orange-5
                     "#800080", //Purple-6
                     "#008000", //Green-7
-                    "#ee82ee", //Violet-8
-                    "#000000", //White-9
-                    "#ffffff"  //Black-10
+                    "#EE82EE", //Violet-8
+                    "#00FFFF", //Cyan-9
+                    "#A52A2A" //Brown-10
                    };
 
 Game::Game(QObject *parent) : QObject(parent)
@@ -69,7 +69,7 @@ void Game::gestion(int place)
 }
 
 void Game::changePlayer1Color(QString null){
-    int index1 = rand()%nbColors;
+    int index1 = rand()%nbColors; // choose random color for player1
     while(colors[index1]==playersColors.first || colors[index1]==playersColors.second){
         index1 = rand()%nbColors;
     }
@@ -78,7 +78,7 @@ void Game::changePlayer1Color(QString null){
 }
 
 void Game::changePlayer2Color(QString null){
-    int index2 = rand()%nbColors;
+    int index2 = rand()%nbColors; // choose random color for player2
     while(colors[index2]==playersColors.second || colors[index2]==playersColors.first){
         index2 = rand()%nbColors;
     }

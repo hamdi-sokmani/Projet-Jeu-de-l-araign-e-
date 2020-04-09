@@ -101,7 +101,18 @@ Rectangle{
             color:Game.gameQML[0]
             border.width: 3
             border.color: {
-                (Game.availableCases[0])?"#13598b":(Game.clickedCase==0)?"#A0BCD0":Game.gameQML[0];
+                function colorHexShade(hex, lum) {
+                    // convert to decimal and change luminosity
+                    hex = String(hex).replace(/[^0-9a-f]/gi, '');
+                    var rgbdarker = "#", c, i;
+                    for (i = 0; i < 3; i++) {
+                        c = parseInt(hex.substr(i*2,2), 16);
+                        c = Math.round(Math.min(Math.max(0, c + (c * lum)), 255)).toString(16);
+                        rgbdarker += ("00"+c).substr(c.length);
+                    }
+                    return rgbdarker;
+                }
+                (Game.availableCases[0])?colorHexShade(Game.current_color, -0.5):(Game.clickedCase==0)?Game.current_color:Game.gameQML[0];
             }
         }
         Rectangle{
@@ -114,7 +125,18 @@ Rectangle{
             color:Game.gameQML[1]
             border.width: 3
             border.color: {
-                (Game.availableCases[1])?"#13598b":(Game.clickedCase==1)?"#A0BCD0":Game.gameQML[1];
+                function colorHexShade(hex, lum) {
+                    // convert to decimal and change luminosity
+                    hex = String(hex).replace(/[^0-9a-f]/gi, '');
+                    var rgbdarker = "#", c, i;
+                    for (i = 0; i < 3; i++) {
+                        c = parseInt(hex.substr(i*2,2), 16);
+                        c = Math.round(Math.min(Math.max(0, c + (c * lum)), 255)).toString(16);
+                        rgbdarker += ("00"+c).substr(c.length);
+                    }
+                    return rgbdarker;
+                }
+                (Game.availableCases[1])?colorHexShade(Game.current_color, -0.5):(Game.clickedCase==1)?Game.current_color:Game.gameQML[1];
             }
         }
 
@@ -130,7 +152,18 @@ Rectangle{
             color:Game.gameQML[2]
             border.width: 3
             border.color: {
-                (Game.availableCases[2])?"#13598b":(Game.clickedCase==2)?"#A0BCD0":Game.gameQML[2];
+                function colorHexShade(hex, lum) {
+                    // convert to decimal and change luminosity
+                    hex = String(hex).replace(/[^0-9a-f]/gi, '');
+                    var rgbdarker = "#", c, i;
+                    for (i = 0; i < 3; i++) {
+                        c = parseInt(hex.substr(i*2,2), 16);
+                        c = Math.round(Math.min(Math.max(0, c + (c * lum)), 255)).toString(16);
+                        rgbdarker += ("00"+c).substr(c.length);
+                    }
+                    return rgbdarker;
+                }
+                (Game.availableCases[2])?colorHexShade(Game.current_color, -0.5):(Game.clickedCase==2)?Game.current_color:Game.gameQML[2];
             }
         }
 
@@ -144,7 +177,18 @@ Rectangle{
             color:Game.gameQML[3]
             border.width: 3
             border.color: {
-                (Game.availableCases[3])?"#13598b":(Game.clickedCase==3)?"#A0BCD0":Game.gameQML[3];
+                function colorHexShade(hex, lum) {
+                    // convert to decimal and change luminosity
+                    hex = String(hex).replace(/[^0-9a-f]/gi, '');
+                    var rgbdarker = "#", c, i;
+                    for (i = 0; i < 3; i++) {
+                        c = parseInt(hex.substr(i*2,2), 16);
+                        c = Math.round(Math.min(Math.max(0, c + (c * lum)), 255)).toString(16);
+                        rgbdarker += ("00"+c).substr(c.length);
+                    }
+                    return rgbdarker;
+                }
+                (Game.availableCases[3])?colorHexShade(Game.current_color,-0.5):(Game.clickedCase==3)?Game.current_color:Game.gameQML[3];
             }
         }
 
@@ -157,7 +201,18 @@ Rectangle{
             color:Game.gameQML[4]
             border.width: 3
             border.color: {
-                (Game.availableCases[4])?"#13598b":(Game.clickedCase==4)?"#A0BCD0":Game.gameQML[4];
+                function colorHexShade(hex, lum) {
+                    // convert to decimal and change luminosity
+                    hex = String(hex).replace(/[^0-9a-f]/gi, '');
+                    var rgbdarker = "#", c, i;
+                    for (i = 0; i < 3; i++) {
+                        c = parseInt(hex.substr(i*2,2), 16);
+                        c = Math.round(Math.min(Math.max(0, c + (c * lum)), 255)).toString(16);
+                        rgbdarker += ("00"+c).substr(c.length);
+                    }
+                    return rgbdarker;
+                }
+                (Game.availableCases[4])?colorHexShade(Game.current_color, -0.5):(Game.clickedCase==4)?Game.current_color:Game.gameQML[4];
             }
         }
 
@@ -171,7 +226,18 @@ Rectangle{
             color:Game.gameQML[5]
             border.width: 3
             border.color: {
-                (Game.availableCases[5])?"#13598b":(Game.clickedCase==5)?"#A0BCD0":Game.gameQML[5];
+                function colorHexShade(hex, lum) {
+                    // convert to decimal and change luminosity
+                    hex = String(hex).replace(/[^0-9a-f]/gi, '');
+                    var rgbdarker = "#", c, i;
+                    for (i = 0; i < 3; i++) {
+                        c = parseInt(hex.substr(i*2,2), 16);
+                        c = Math.round(Math.min(Math.max(0, c + (c * lum)), 255)).toString(16);
+                        rgbdarker += ("00"+c).substr(c.length);
+                    }
+                    return rgbdarker;
+                }
+                (Game.availableCases[5])?colorHexShade(Game.current_color,-0.5):(Game.clickedCase==5)?Game.current_color:Game.gameQML[5];
             }
 
         }
@@ -187,7 +253,18 @@ Rectangle{
             color:Game.gameQML[6]
             border.width: 3
             border.color: {
-                (Game.availableCases[6])?"#13598b":(Game.clickedCase==6)?"#A0BCD0":Game.gameQML[6];
+                function colorHexShade(hex, lum) {
+                    // convert to decimal and change luminosity
+                    hex = String(hex).replace(/[^0-9a-f]/gi, '');
+                    var rgbdarker = "#", c, i;
+                    for (i = 0; i < 3; i++) {
+                        c = parseInt(hex.substr(i*2,2), 16);
+                        c = Math.round(Math.min(Math.max(0, c + (c * lum)), 255)).toString(16);
+                        rgbdarker += ("00"+c).substr(c.length);
+                    }
+                    return rgbdarker;
+                }
+                (Game.availableCases[6])?colorHexShade(Game.current_color,-0.5):(Game.clickedCase==6)?Game.current_color:Game.gameQML[6];
             }
 
         }
@@ -202,7 +279,18 @@ Rectangle{
             color:Game.gameQML[7]
             border.width: 3
             border.color: {
-                (Game.availableCases[7])?"#13598b":(Game.clickedCase==7)?"#A0BCD0":Game.gameQML[7];
+                function colorHexShade(hex, lum) {
+                    // convert to decimal and change luminosity
+                    hex = String(hex).replace(/[^0-9a-f]/gi, '');
+                    var rgbdarker = "#", c, i;
+                    for (i = 0; i < 3; i++) {
+                        c = parseInt(hex.substr(i*2,2), 16);
+                        c = Math.round(Math.min(Math.max(0, c + (c * lum)), 255)).toString(16);
+                        rgbdarker += ("00"+c).substr(c.length);
+                    }
+                    return rgbdarker;
+                }
+                (Game.availableCases[7])?colorHexShade(Game.current_color,-0.5):(Game.clickedCase==7)?Game.current_color:Game.gameQML[7];
             }
 
         }
@@ -218,7 +306,18 @@ Rectangle{
             color:Game.gameQML[8]
             border.width: 3
             border.color: {
-                (Game.availableCases[8])?"#13598b":(Game.clickedCase==8)?"#A0BCD0":Game.gameQML[8];
+                function colorHexShade(hex, lum) {
+                    // convert to decimal and change luminosity
+                    hex = String(hex).replace(/[^0-9a-f]/gi, '');
+                    var rgbdarker = "#", c, i;
+                    for (i = 0; i < 3; i++) {
+                        c = parseInt(hex.substr(i*2,2), 16);
+                        c = Math.round(Math.min(Math.max(0, c + (c * lum)), 255)).toString(16);
+                        rgbdarker += ("00"+c).substr(c.length);
+                    }
+                    return rgbdarker;
+                }
+                (Game.availableCases[8])?colorHexShade(Game.current_color,-0.5):(Game.clickedCase==8)?Game.current_color:Game.gameQML[8];
             }
 
         }
@@ -548,7 +647,7 @@ Rectangle{
                 height: 25
                 acceptedButtons: Qt.LeftButton
                 onClicked: {
-                    if(turn_box.color==Game.player1Color){
+                    if(turn_box.color ==Game.player1Color.toLowerCase()){
                         Game.changePlayer1Color("");
                         colorArea0.color=Game.gameQML[0]
                         colorArea1.color=Game.gameQML[1]
@@ -560,7 +659,7 @@ Rectangle{
                         colorArea7.color=Game.gameQML[7]
                         colorArea8.color=Game.gameQML[8]
                     }
-                    else if (turn_box.color==Game.player2Color){
+                    else if (turn_box.color==Game.player2Color.toLowerCase()){
                         Game.changePlayer2Color("");
                         colorArea0.color=Game.gameQML[0]
                         colorArea1.color=Game.gameQML[1]
