@@ -567,12 +567,13 @@ Rectangle{
     Rectangle{
         id: restart
         anchors.horizontalCenter: parent.horizontalCenter
-        anchors.bottom: parent.bottom
-        anchors.bottomMargin: 40
         width: 115
         height: 30
         color: "#cd853f"
         radius:10
+        anchors.horizontalCenterOffset: 0
+        anchors.top: main_rect.bottom
+        anchors.topMargin: 44
 
         Text{
             id:text_restart

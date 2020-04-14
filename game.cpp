@@ -21,6 +21,7 @@ QString colors[nbColors]=
 
 Game::Game(QObject *parent) : QObject(parent)
 {
+    /* Initialization of Variables */
     compteur=0;
     th_phase2 = 6;
     indexOfClicked = -1;
@@ -36,10 +37,12 @@ Game::Game(QObject *parent) : QObject(parent)
     while(index1==index2) index2=rand()%nbColors;
     playersColors.first=colors[index1];
     playersColors.second=colors[index2];
+    /* Inform Qt about the changes */
     gamechanged();
 }
 void Game::gestion(int place)
 {
+    /* If it's first phase */
     if (compteur<th_phase2)
     {
         if(listecases[place].getJoueur()==0)
@@ -48,6 +51,7 @@ void Game::gestion(int place)
             compteur++;
         }
     }
+    /* It's second phase */
     else
     {
         if(color_exist)
@@ -64,10 +68,12 @@ void Game::gestion(int place)
         }
 
     }
+    /* Check if there's a winner */
     condition_winner();
     gamechanged();
 }
 
+/* Change the color of first player randomly */
 void Game::changePlayer1Color(QString null){
     int index1 = rand()%nbColors; // choose random color for player1
     while(colors[index1]==playersColors.first || colors[index1]==playersColors.second){
@@ -77,6 +83,7 @@ void Game::changePlayer1Color(QString null){
     gamechanged();
 }
 
+/* Change the color of second player randomly */
 void Game::changePlayer2Color(QString null){
     int index2 = rand()%nbColors; // choose random color for player2
     while(colors[index2]==playersColors.second || colors[index2]==playersColors.first){
@@ -86,11 +93,12 @@ void Game::changePlayer2Color(QString null){
     gamechanged();
 }
 
-
+/* Phase1 */
 void Game::phase1(int place){
     listecases[place].setJoueur(compteur%2+1);
 }
 
+/* Phase2: selection of box to move */
 void Game::phase2_1(int place){
 
         if (listecases[place].getJoueur()==(compteur%2+1))
@@ -102,6 +110,8 @@ void Game::phase2_1(int place){
             gamechanged();
         }
 }
+
+/* Phase2: actual movement of the selected box */
 void Game::phase2_2(int place){
 
         if (listecases_copy1[place].getJoueur()==0)
@@ -116,6 +126,8 @@ void Game::phase2_2(int place){
             gamechanged();
         }
 }
+
+/* Eliminate the boxes that you can't move selected box to */
 void Game::contrainte_deplacement(int case_number)
 {
     for (int i=0;i<9;i++)
@@ -187,6 +199,9 @@ void Game::contrainte_deplacement(int case_number)
         listecases_copy1[6].setJoueur(3);
     }
 }
+
+
+/* Eliminate the boxes that you can't move */
 void Game::contrainte_takepion()
 {
     for (int i=0;i<9;i++)
@@ -228,6 +243,8 @@ void Game::contrainte_takepion()
     }
 }
 
+
+/* Occupied positions for QML */
 QList<QString> Game::readPos()
 {
     QString gris="gainsboro";
@@ -257,6 +274,7 @@ QList<QString> Game::readPos()
     return positions;
 }
 
+/* Available Boxes for QML */
 QList<bool> Game::getAvailableCases(){
     QList<bool> available;
     for (int i = 0; i<9; i++){
@@ -266,11 +284,12 @@ QList<bool> Game::getAvailableCases(){
     return available;
 }
 
+/* Clicked Box */
 int Game::getClickedCase(){
     return indexOfClicked;
 }
 
-
+/* Check which player's turn */
 QString Game::which_turn()
 {
      QString current_color;
@@ -290,6 +309,7 @@ QString Game::which_turn()
 
 }
 
+/* Win condition */
 void Game::condition_winner()
 {
     bool weHaveAWinner = false;
@@ -343,6 +363,7 @@ void Game::condition_winner()
 
 }
 
+/* Winner color */
 QString Game::winner_color()
 {
     QString gris="gainsboro";
@@ -363,6 +384,7 @@ QString Game::winner_color()
     return color;
 }
 
+/* Restart button */
 void Game::restart(){
     compteur=compteur%2; //Loser Player starts First
     th_phase2 = (compteur==0)?6:7; // Adjusts the limit to match 6 turns until phase2 in both cases
